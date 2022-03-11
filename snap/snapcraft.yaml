@@ -1,0 +1,20 @@
+name: snap-test-binary-distribution 
+base: core20 # core18 it's the recommended and it has a broader support
+version: '0.1alpha' 
+summary: Testing snap to create a ready to use tools package. # 79 char long summary
+description: |
+  I'm testing to see if snap serves to pack an environment.
+  Mainly the intention is to pack a development environment with tools and configurations.
+
+grade: devel # must be 'stable' to release into candidate/stable channels
+confinement: devmode # use 'strict' once you have the right plugs and slots
+
+parts:
+  vscode-to-install:
+    plugin: nil
+    stage-snaps: 
+      - code
+    stage-packages:
+      - libtinfo5
+      - libxkbfile1
+
